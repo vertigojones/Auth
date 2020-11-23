@@ -8,14 +8,16 @@ const Landing = () => {
       <OuterContainer>
         <Container style={{ padding: "20px" }}>
           <HeaderContainer>
-            <Header size="huge">HD SupplyBook</Header>
+            <Header size="huge">
+              <span>HD</span> SupplyBook
+            </Header>
           </HeaderContainer>
-          <Message>
-            <p>
+          <MessageContainer>
+            <Message compact color="yellow">
               Connect with fellow HD Supply and White Cap employees. Please sign
-              up for an account or log in to your current
-            </p>
-          </Message>
+              up for an account or log in to your current profile.
+            </Message>
+          </MessageContainer>
           <ButtonContainer>
             <Button.Group>
               <Button primary>Sign Up</Button>
@@ -36,11 +38,28 @@ const LandingStyles = styled.div`
 `;
 
 const OuterContainer = styled.div`
-  margin-top: 33vh;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.75);
+  border: solid;
+  border-width: 1px 0;
+  border-color: black;
 `;
 
 const HeaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  text-shadow: 1px 1px white;
+
+  span {
+    color: #eebb15;
+    text-shadow: 1px 1px black;
+  }
+`;
+
+const MessageContainer = styled.div`
+  margin: 20px 0;
   display: flex;
   justify-content: center;
 `;
