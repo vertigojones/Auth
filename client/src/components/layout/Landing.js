@@ -42,8 +42,8 @@ const OuterContainer = styled.div`
   bottom: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.75);
-  border: solid;
-  border-width: 1px 0;
+  border-top: solid;
+  border-width: 1px;
   border-color: black;
 `;
 
