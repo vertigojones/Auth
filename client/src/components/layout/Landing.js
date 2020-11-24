@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Container, Header, Message, Button } from "semantic-ui-react";
 import styled from "styled-components";
 
@@ -20,9 +21,13 @@ const Landing = () => {
           </MessageContainer>
           <ButtonContainer>
             <Button.Group>
-              <Button primary>Sign Up</Button>
+              <Link to="/register">
+                <Button primary>Sign Up</Button>
+              </Link>
               <Button.Or />
-              <Button secondary>Log In</Button>
+              <Link to="/login">
+                <Button secondary>Log In</Button>
+              </Link>
             </Button.Group>
           </ButtonContainer>
         </Container>
