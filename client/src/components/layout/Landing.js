@@ -5,42 +5,36 @@ import styled from "styled-components";
 
 const Landing = () => {
   return (
-    <LandingStyles>
-      <OuterContainer>
-        <Container style={{ padding: "20px" }}>
-          <HeaderContainer>
-            <Header size="huge">
-              <span>HD</span> SupplyBook
-            </Header>
-          </HeaderContainer>
-          <MessageContainer>
-            <Message compact color="yellow">
-              Connect with fellow HD Supply and White Cap employees. Please sign
-              up for an account or log in to your current profile.
-            </Message>
-          </MessageContainer>
-          <ButtonContainer>
-            <Button.Group>
-              <Link to="/register">
-                <Button primary>Sign Up</Button>
-              </Link>
-              <Button.Or />
-              <Link to="/login">
-                <Button secondary>Log In</Button>
-              </Link>
-            </Button.Group>
-          </ButtonContainer>
-        </Container>
-      </OuterContainer>
-    </LandingStyles>
+    <OuterContainer>
+      <Container style={{ padding: "20px" }}>
+        <HeaderContainer>
+          <Header size="huge">
+            <span>HD</span> SupplyBook
+          </Header>
+        </HeaderContainer>
+        <MessageContainer>
+          <Message compact color="yellow">
+            Connect with fellow HD Supply and White Cap employees. Please sign
+            up for an account or log in to your current profile.
+          </Message>
+        </MessageContainer>
+        <ButtonContainer>
+          <Button.Group>
+            <Link to="/register">
+              <Button primary>Sign Up</Button>
+            </Link>
+            <Button.Or />
+            <Link to="/login">
+              <Button secondary>Log In</Button>
+            </Link>
+          </Button.Group>
+        </ButtonContainer>
+      </Container>
+    </OuterContainer>
   );
 };
 
 export default Landing;
-
-const LandingStyles = styled.div`
-  position: relative;
-`;
 
 const OuterContainer = styled.div`
   position: fixed;
