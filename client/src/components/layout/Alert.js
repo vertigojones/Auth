@@ -20,7 +20,7 @@ const Alert = ({ alerts }) =>
     </MessageContainer>
   ));
 
-Alert.PropTypes = {
+Alert.propTypes = {
   alerts: PropTypes.array.isRequired,
 };
 

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import { loadUser } from "./actions/auth";
+import setAuthToken from "./utils/setAuthToken";
 import styled from "styled-components";
 
 import NavBar from "./components/layout/NavBar";
@@ -12,21 +14,31 @@ import Register from "./components/auth/Register";
 
 import background from "./library/images/hd-supply-background.jpeg";
 
-const App = () => (
-  <Provider store={store}>
-    <Router>
-      <AppStyles style={{ backgroundImage: `url("${background}")` }}>
-        <NavBar />
-        <Alert />
-        <Route exact path="/" component={Landing} />
-        <Switch>
-          <Route exact path="/register" component={Register} />
-          <Route exact path="/login" component={Login} />
-        </Switch>
-      </AppStyles>
-    </Router>
-  </Provider>
-);
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
+
+const App = () => {
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+
+  return (
+    <Provider store={store}>
+      <Router>
+        <AppStyles style={{ backgroundImage: `url("${background}")` }}>
+          <NavBar />
+          <Alert />
+          <Route exact path="/" component={Landing} />
+          <Switch>
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/login" component={Login} />
+          </Switch>
+        </AppStyles>
+      </Router>
+    </Provider>
+  );
+};
 
 export default App;
 
