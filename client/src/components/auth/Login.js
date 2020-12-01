@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Container, Header, Message, Button, Form } from "semantic-ui-react";
+import { Container, Header, Button, Form } from "semantic-ui-react";
 import styled from "styled-components";
 
 const Login = () => {
@@ -55,9 +54,6 @@ const Login = () => {
             Login
           </Button>
         </Form>
-        <Message compact color="yellow">
-          Don't have an account? <Link to="/register">Sign Up</Link>
-        </Message>
       </Container>
     </OuterContainer>
   );

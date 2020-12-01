@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { setAlert } from "../../actions/alert";
 import { register } from "../../actions/auth";
 import PropTypes from "prop-types";
-import { Container, Header, Message, Button, Form } from "semantic-ui-react";
+import { Container, Header, Button, Form } from "semantic-ui-react";
 import styled from "styled-components";
 
 const Register = ({ setAlert, register }) => {
@@ -25,11 +24,7 @@ const Register = ({ setAlert, register }) => {
     if (password !== confirmPassword) {
       setAlert("Passwords do not match", "negative");
     } else {
-      register({
-        name,
-        email,
-        password,
-      });
+      register({ name, email, password });
     }
   };
 
@@ -67,7 +62,6 @@ const Register = ({ setAlert, register }) => {
               placeholder="Password"
               name="password"
               value={password}
-              minLength="6"
               onChange={(e) => onChange(e)}
             />
           </Form.Field>
@@ -78,7 +72,6 @@ const Register = ({ setAlert, register }) => {
               placeholder="Confirm Password"
               name="confirmPassword"
               value={confirmPassword}
-              minLength="6"
               onChange={(e) => onChange(e)}
             />
           </Form.Field>
@@ -96,9 +89,6 @@ const Register = ({ setAlert, register }) => {
             Sign Up
           </Button>
         </Form>
-        <Message compact color="yellow">
-          Already subscribed? <Link to="/login">Login</Link>
-        </Message>
       </Container>
     </OuterContainer>
   );
@@ -109,7 +99,7 @@ Register.propTypes = {
   register: PropTypes.func.isRequired,
 };
 
-export default connect(null, { setAlert })(Register);
+export default connect(null, { setAlert, register })(Register);
 
 const OuterContainer = styled.div`
   position: absolute;
