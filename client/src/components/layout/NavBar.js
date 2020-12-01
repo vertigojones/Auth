@@ -1,54 +1,52 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Menu, Segment } from "semantic-ui-react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { logout } from "../../actions/auth";
+import { Menu, Segment, Button } from "semantic-ui-react";
 import styled from "styled-components";
 
-export default class NavBar extends Component {
-  state = { activeItem: "home" };
+const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
+  const authLinks = (
+    <>
+      <Menu.Item as={Link} name="dashboard" to="/dashboard" />
+      <Menu.Item as={Link} name="posts" to="/posts" />
+      <Button onClick={logout} negative>
+        Log Out
+      </Button>
+    </>
+  );
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  const guestLinks = (
+    <>
+      <Menu.Item as={Link} name="sign up" to="/register" />
+      <Menu.Item as={Link} name="log in" to="/login" />
+    </>
+  );
 
-  render() {
-    const { activeItem } = this.state;
+  return (
+    <NavBarStyles>
+      <Segment inverted>
+        <Menu inverted pointing secondary>
+          <Menu.Item as={Link} name="home" to="/" />
+          <Menu.Item as={Link} name="employees" to="/employees" />
+          {isAuthenticated ? authLinks : guestLinks}
+        </Menu>
+      </Segment>
+    </NavBarStyles>
+  );
+};
 
-    return (
-      <NavBarStyles>
-        <Segment inverted>
-          <Menu inverted pointing secondary>
-            <Menu.Item
-              as={Link}
-              name="home"
-              to="/"
-              active={activeItem === "home"}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item
-              as={Link}
-              to="/employees"
-              name="employees"
-              active={activeItem === "employees"}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item
-              as={Link}
-              to="/register"
-              name="register"
-              active={activeItem === "register"}
-              onClick={this.handleItemClick}
-            />
-            <Menu.Item
-              as={Link}
-              name="login"
-              to="/login"
-              active={activeItem === "login"}
-              onClick={this.handleItemClick}
-            />
-          </Menu>
-        </Segment>
-      </NavBarStyles>
-    );
-  }
-}
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+NavBar.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+};
+
+export default connect(mapStateToProps, { logout })(NavBar);
 
 const NavBarStyles = styled.div`
   position: fixed;
