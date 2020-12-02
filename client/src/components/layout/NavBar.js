@@ -30,7 +30,7 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
         <Menu inverted pointing secondary>
           <Menu.Item as={Link} name="home" to="/" />
           <Menu.Item as={Link} name="employees" to="/employees" />
-          {isAuthenticated ? authLinks : guestLinks}
+          {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
         </Menu>
       </Segment>
     </NavBarStyles>

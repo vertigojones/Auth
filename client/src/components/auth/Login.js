@@ -51,7 +51,6 @@ const Login = ({ login, isAuthenticated }) => {
               placeholder="Password"
               name="password"
               value={password}
-              minLength="6"
               onChange={(e) => onChange(e)}
             />
           </Form.Field>
