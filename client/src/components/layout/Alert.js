@@ -37,5 +37,6 @@ const MessageContainer = styled.div`
   @media (max-width: 768px) {
     bottom: 20px;
     top: auto;
+    z-index: 1000;
   }
 `;
