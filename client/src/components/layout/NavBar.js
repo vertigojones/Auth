@@ -10,6 +10,7 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <>
       <Menu.Item as={Link} name="dashboard" to="/dashboard" />
+      <Menu.Item as={Link} name="employees" to="/employees" />
       <Menu.Item as={Link} name="posts" to="/posts" />
       <Button onClick={logout} negative>
         Log Out
@@ -19,6 +20,8 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
 
   const guestLinks = (
     <>
+      <Menu.Item as={Link} name="home" to="/" />
+      <Menu.Item as={Link} name="employees" to="/employees" />
       <Menu.Item as={Link} name="sign up" to="/register" />
       <Menu.Item as={Link} name="log in" to="/login" />
     </>
@@ -28,8 +31,6 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
     <NavBarStyles>
       <Segment inverted>
         <Menu inverted pointing secondary>
-          <Menu.Item as={Link} name="home" to="/" />
-          <Menu.Item as={Link} name="employees" to="/employees" />
           {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
         </Menu>
       </Segment>
