@@ -23,7 +23,9 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <Menu.Item as={Link} name="home" to="/" />
       <Menu.Item as={Link} name="employees" to="/employees" />
       <Menu.Item as={Link} name="sign up" to="/register" />
-      <Menu.Item as={Link} name="log in" to="/login" />
+      <Link to="/login">
+        <Button primary>Log In</Button>
+      </Link>
     </>
   );
 

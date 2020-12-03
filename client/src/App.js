@@ -13,6 +13,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/profile/CreateProfile";
+import EditProfile from "./components/profile/EditProfile";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 import background from "./library/images/hd-supply-background.jpeg";
@@ -42,6 +43,7 @@ const App = () => {
               path="/create-profile"
               component={CreateProfile}
             />
+            <PrivateRoute exact path="/edit-profile" component={EditProfile} />
           </Switch>
         </AppStyles>
       </Router>

@@ -81,6 +81,10 @@ const OuterContainer = styled.div`
   position: absolute;
   background-color: rgba(255, 255, 255, 0.95);
   border: solid 1px black;
+
+  @media (max-width: 768px) {
+    top: 82px;
+  }
 `;
 
 const HeaderContainer = styled.div`
