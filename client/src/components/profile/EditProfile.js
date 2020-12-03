@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile, getCurrentProfile } from "../../actions/profile";
@@ -39,7 +39,7 @@ const EditProfile = ({
 
   const onSubmit = (e) => {
     e.preventDefault();
-    createProfile(formData, history);
+    createProfile(formData, history, true);
   };
 
   return (
@@ -115,6 +115,9 @@ const EditProfile = ({
           >
             Submit
           </Button>
+          <Link to="/dashboard">
+            <Button primary>Go back</Button>
+          </Link>
         </Form>
       </Container>
     </OuterContainer>

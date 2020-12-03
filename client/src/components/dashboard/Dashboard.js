@@ -6,7 +6,7 @@ import { getCurrentProfile } from "../../actions/profile";
 import { Container, Header, Icon, Message } from "semantic-ui-react";
 import styled from "styled-components";
 
-import { DashboardActions } from "./DashboardActions";
+import DashboardActions from "./DashboardActions";
 import Spinner from "../layout/Spinner";
 
 const Dashboard = ({

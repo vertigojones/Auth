@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProfile } from "../../actions/profile";
@@ -98,6 +98,9 @@ const CreateProfile = ({ createProfile, history }) => {
           >
             Sign Up
           </Button>
+          <Link to="/dashboard">
+            <Button primary>Go back</Button>
+          </Link>
         </Form>
       </Container>
     </OuterContainer>

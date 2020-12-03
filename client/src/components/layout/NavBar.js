@@ -12,7 +12,7 @@ const NavBar = ({ auth: { isAuthenticated, loading }, logout }) => {
       <Menu.Item as={Link} name="dashboard" to="/dashboard" />
       <Menu.Item as={Link} name="employees" to="/employees" />
       <Menu.Item as={Link} name="posts" to="/posts" />
-      <Button onClick={logout} negative>
+      <Button onClick={logout} primary>
         Log Out
       </Button>
     </>
