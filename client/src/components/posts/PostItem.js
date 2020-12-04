@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import { Comment, Feed, Icon } from "semantic-ui-react";
 import Moment from "react-moment";
 import { connect } from "react-redux";
+import { addLike, removeLike } from "../../actions/post";
 
 const ProfileItem = ({
+  addLike,
+  removeLike,
   auth,
   post: { _id, text, name, avatar, user, likes, comments, date },
 }) => {
@@ -25,17 +28,27 @@ const ProfileItem = ({
           <Feed.Event>
             <Feed.Content>
               <Feed.Meta style={{ marginTop: "0" }}>
+                <Icon
+                  name="thumbs up outline"
+                  size="large"
+                  onClick={(e) => addLike(_id)}
+                  style={{ marginRight: "-5px" }}
+                />
+                <Icon
+                  name="thumbs down outline"
+                  size="large"
+                  onClick={(e) => removeLike(_id)}
+                  style={{ marginRight: "20px" }}
+                />
                 <Feed.Like>
                   <Icon name="like" />
                   {likes.length} {likes.length === 1 ? <>Like</> : <>Likes</>}
                 </Feed.Like>
                 {comments.length > 0 && (
                   <Link to={`/post/${_id}`}>
-                    <Feed.Like>
-                      <Icon name="comments" />
-                      {comments.length}{" "}
-                      {comments.length === 1 ? <>Comment</> : <>Comments</>}
-                    </Feed.Like>
+                    <Icon name="comments" />
+                    {comments.length}{" "}
+                    {comments.length === 1 ? <>Comment</> : <>Comments</>}
                   </Link>
                 )}
                 {!auth.loading && user === auth.user._id && (
@@ -61,4 +74,4 @@ const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, {})(ProfileItem);
+export default connect(mapStateToProps, { addLike, removeLike })(ProfileItem);
