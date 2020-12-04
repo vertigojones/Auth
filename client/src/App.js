@@ -11,10 +11,11 @@ import Alert from "./components/layout/Alert";
 import Landing from "./components/layout/Landing";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import Employees from "./components/profiles/Profiles"
+import Employees from "./components/profiles/Profiles";
 import Dashboard from "./components/dashboard/Dashboard";
 import CreateProfile from "./components/profiles/CreateProfile";
 import EditProfile from "./components/profiles/EditProfile";
+import Profile from "./components/profiles/Profile";
 import PrivateRoute from "./components/routing/PrivateRoute";
 
 import background from "./library/images/hd-supply-background.jpeg";
@@ -37,6 +38,7 @@ const App = () => {
           <Route exact path="/" component={Landing} />
           <Switch>
             <Route exact path="/employees" component={Employees} />
+            <Route exact path="/employees/:id" component={Profile} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <PrivateRoute exact path="/dashboard" component={Dashboard} />

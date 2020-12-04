@@ -30,7 +30,7 @@ const EditProfile = ({
       skills: loading || !profile.skills ? "" : profile.skills.join(", "),
       hobbies: loading || !profile.hobbies ? "" : profile.hobbies.join(", "),
     });
-  }, [loading]);
+  }, [loading, getCurrentProfile]);
 
   const { department, position, about, skills, hobbies } = formData;
 
@@ -116,7 +116,7 @@ const EditProfile = ({
             Submit
           </Button>
           <Link to="/dashboard">
-            <Button primary>Go back</Button>
+            <Button basic primary>Go back</Button>
           </Link>
         </Form>
       </Container>

@@ -16,7 +16,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
   return (
     <OuterContainer>
@@ -27,7 +27,7 @@ const Dashboard = ({
           <>
             <HeaderContainer>
               <Header size="huge">
-                <span>HD</span> SupplyBook - Your Profile
+                <span>HD</span> SupplyBook - Dashboard
               </Header>
             </HeaderContainer>
             <HeaderContainer style={{ marginTop: "20px" }}>

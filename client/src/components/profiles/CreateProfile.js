@@ -99,7 +99,7 @@ const CreateProfile = ({ createProfile, history }) => {
             Sign Up
           </Button>
           <Link to="/dashboard">
-            <Button primary>Go back</Button>
+            <Button basic primary>Go back</Button>
           </Link>
         </Form>
       </Container>

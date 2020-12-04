@@ -10,12 +10,12 @@ const ProfileItem = ({
   },
 }) => {
   return (
-    <Item as={Link} to={`/profile/${_id}`} style={{ marginTop: "40px" }}>
+    <Item as={Link} to={`/employees/${_id}`} style={{ marginTop: "40px" }}>
       <Item.Image size="tiny" src={avatar} />
       <Item.Content>
         <Item.Header>{name}</Item.Header>
         <Item.Description>{department}</Item.Description>
-        <Item.Description>{email}</Item.Description>
+        <Item.Meta>{email}</Item.Meta>
       </Item.Content>
     </Item>
   );
