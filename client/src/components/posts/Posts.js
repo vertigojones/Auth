@@ -3,9 +3,16 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getPosts } from "../../actions/post";
-import { Container, Header, Comment, Message } from "semantic-ui-react";
+import {
+  Container,
+  Header,
+  Divider,
+  Comment,
+  Message,
+} from "semantic-ui-react";
 import styled from "styled-components";
 
+import PostForm from "./PostForm";
 import PostItem from "./PostItem";
 import Spinner from "../layout/Spinner";
 
@@ -24,6 +31,11 @@ const Posts = ({ getPosts, post: { posts, loading } }) => {
               <Header size="huge">
                 <span>HD</span> SupplyBook Posts
               </Header>
+            </HeaderContainer>
+            <PostForm />
+            <Divider />
+            <HeaderContainer>
+              <Header size="large">Post Feed</Header>
             </HeaderContainer>
             {posts.length > 0 ? (
               <Comment.Group>
@@ -61,10 +73,7 @@ const OuterContainer = styled.div`
   position: absolute;
   background-color: rgba(255, 255, 255, 0.95);
   border: solid 1px black;
-
-  @media (max-width: 768px) {
-    top: 82px;
-  }
+  top: 100px;
 `;
 
 const HeaderContainer = styled.div`
