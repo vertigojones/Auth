@@ -13,7 +13,7 @@ const Alert = ({ alerts }) =>
         <Message
           key={alert.id}
           negative={alert.alertType === "negative" ? true : false}
-          positive={alert.alertTypeb === "positive" ? true : false}
+          positive={alert.alertType === "positive" ? true : false}
         >
           {alert.msg}
         </Message>

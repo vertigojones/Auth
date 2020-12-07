@@ -4,11 +4,12 @@ import { Link } from "react-router-dom";
 import { Comment, Feed, Icon } from "semantic-ui-react";
 import Moment from "react-moment";
 import { connect } from "react-redux";
-import { addLike, removeLike } from "../../actions/post";
+import { addLike, removeLike, deletePost } from "../../actions/post";
 
 const ProfileItem = ({
   addLike,
   removeLike,
+  deletePost,
   auth,
   post: { _id, text, name, avatar, user, likes, comments, date },
 }) => {
@@ -52,7 +53,7 @@ const ProfileItem = ({
                   </Link>
                 )}
                 {!auth.loading && user === auth.user._id && (
-                  <Feed.Like>
+                  <Feed.Like onClick={(e) => deletePost(_id)}>
                     <Icon name="delete" />
                     Delete Thread
                   </Feed.Like>
@@ -68,10 +69,16 @@ const ProfileItem = ({
 
 ProfileItem.propTypes = {
   post: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
+  addLike: PropTypes.func.isRequired,
+  removeLike: PropTypes.func.isRequired,
+  deletePost: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   auth: state.auth,
 });
 
-export default connect(mapStateToProps, { addLike, removeLike })(ProfileItem);
+export default connect(mapStateToProps, { addLike, removeLike, deletePost })(
+  ProfileItem
+);
