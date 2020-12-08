@@ -7,13 +7,14 @@ import { Container, Header, Comment, Button, Divider } from "semantic-ui-react";
 import styled from "styled-components";
 
 import PostItem from "./PostItem";
+import CommentItem from "./CommentItem";
 import CommentForm from "./CommentForm";
 import Spinner from "../layout/Spinner";
 
 const Post = ({ getPost, post: { post, loading }, match }) => {
   useEffect(() => {
     getPost(match.params.id);
-  }, [getPost, match]);
+  }, [getPost, match.params.id]);
 
   return (
     <OuterContainer>
@@ -39,6 +40,22 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
             <Comment.Group>
               <PostItem post={post} showActions={false} />
             </Comment.Group>
+            <CommentsContainer>
+              <Comment.Group>
+                {post.comments
+                  .slice(0)
+                  .reverse()
+                  .map((comment) => {
+                    return (
+                      <CommentItem
+                        key={comment._id}
+                        comment={comment}
+                        postId={post._id}
+                      />
+                    );
+                  })}
+              </Comment.Group>
+            </CommentsContainer>
           </>
         )}
       </Container>
@@ -78,4 +95,8 @@ const HeaderContainer = styled.div`
 
 const CommentFormContainer = styled.div`
   margin-top: 40px;
+`;
+
+const CommentsContainer = styled.div`
+  margin-left: 40px;
 `;
