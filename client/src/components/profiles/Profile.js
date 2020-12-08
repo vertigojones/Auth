@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getProfileById } from "../../actions/profile";
-import { Container, Header, Card, Image, Button } from "semantic-ui-react";
+import {
+  Container,
+  Message,
+  Divider,
+  Header,
+  Item,
+  Button,
+} from "semantic-ui-react";
 import styled from "styled-components";
 
 import Spinner from "../layout/Spinner";
@@ -30,26 +37,25 @@ const Profile = ({
               </Header>
             </HeaderContainer>
             <CardContainer>
-              <Card>
-                <Image src={profile.user.avatar} wrapped ui={false} />
-                <Card.Content>
-                  <Card.Header>{profile.user.name}</Card.Header>
-                  <Card.Description>{profile.department}</Card.Description>
-                  <Card.Meta>{profile.user.email}</Card.Meta>
-                </Card.Content>
-                <Card.Content extra>
-                  <Card.Description>Bio:</Card.Description>
-                  {profile.about}
-                </Card.Content>
-                <Card.Content extra>
-                  <Card.Description>Skills:</Card.Description>
-                  {profile.skills.join(", ")}
-                </Card.Content>
-                <Card.Content extra>
-                  <Card.Description>Hobbies:</Card.Description>
-                  {profile.hobbies.join(", ")}
-                </Card.Content>
-              </Card>
+              <Message>
+                <Item.Group>
+                  <Item>
+                    <Item.Image size="small" src={profile.user.avatar} />
+                    <Item.Content>
+                      <Item.Header>{profile.user.name}</Item.Header>
+                      <Item.Description>{profile.department}</Item.Description>
+                      <Item.Meta>{profile.user.email}</Item.Meta>
+                      <Divider />
+                      <Item.Description>Bio:</Item.Description>
+                      <Item.Meta>{profile.about}</Item.Meta>
+                      <Item.Description>Skills:</Item.Description>
+                      <Item.Meta>{profile.skills.join(", ")}</Item.Meta>
+                      <Item.Description>Hobbies:</Item.Description>
+                      <Item.Meta>{profile.hobbies.join(", ")}</Item.Meta>
+                    </Item.Content>
+                  </Item>
+                </Item.Group>
+              </Message>
             </CardContainer>
             <ButtonContainer>
               {auth.isAuthenticated &&

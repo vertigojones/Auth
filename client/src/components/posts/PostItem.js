@@ -34,7 +34,14 @@ const PostItem = ({
             </Comment.Actions>
             <Feed style={{ marginTop: "0" }}>
               <Feed.Event>
-                <Feed.Content>
+                <Feed.Content
+                  style={{
+                    height: "36px",
+                    display: "flex",
+                    alignItems: "flex-end",
+                    marginBottom: "12px"
+                  }}
+                >
                   <Feed.Meta style={{ marginTop: "0" }}>
                     <Icon
                       name="thumbs up outline"
@@ -54,7 +61,7 @@ const PostItem = ({
                       {likes.length === 1 ? <>Like</> : <>Likes</>}
                     </Feed.Like>
                     {comments.length > 0 && (
-                      <Link to={`/post/${_id}`}>
+                      <Link to={`/posts/${_id}`}>
                         <Icon name="comments" />
                         {comments.length}{" "}
                         {comments.length === 1 ? <>Comment</> : <>Comments</>}

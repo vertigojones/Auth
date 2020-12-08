@@ -30,7 +30,7 @@ const Dashboard = ({
                 <span>HD</span> SupplyBook - Dashboard
               </Header>
             </HeaderContainer>
-            <HeaderContainer style={{ marginTop: "20px" }}>
+            <HeaderContainer style={{ marginTop: "40px" }}>
               <Header size="medium">
                 <Icon name="user" />
                 Welcome {user && user.name}

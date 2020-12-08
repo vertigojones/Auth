@@ -62,6 +62,7 @@ const OuterContainer = styled.div`
   position: absolute;
   background-color: rgba(255, 255, 255, 0.95);
   border: solid 1px black;
+  margin-bottom: 40px;
 
   @media (max-width: 768px) {
     top: 82px;

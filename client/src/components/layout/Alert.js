@@ -1,24 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Container, Message } from "semantic-ui-react";
-import styled from "styled-components";
+import { Modal, Message } from "semantic-ui-react";
 
 const Alert = ({ alerts }) =>
   alerts !== null &&
   alerts.length > 0 &&
   alerts.map((alert) => (
-    <MessageContainer>
-      <Container>
+    <Modal key={alert.id} size="small" open={true}>
+      <Modal.Content>
         <Message
-          key={alert.id}
           negative={alert.alertType === "negative" ? true : false}
           positive={alert.alertType === "positive" ? true : false}
         >
           {alert.msg}
         </Message>
-      </Container>
-    </MessageContainer>
+      </Modal.Content>
+    </Modal>
   ));
 
 Alert.propTypes = {
@@ -30,14 +28,3 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(Alert);
-
-const MessageContainer = styled.div`
-  position: absolute;
-  top: 120px;
-
-  @media (max-width: 768px) {
-    bottom: 20px;
-    top: auto;
-    z-index: 1000;
-  }
-`;

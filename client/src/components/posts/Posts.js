@@ -74,6 +74,7 @@ const OuterContainer = styled.div`
   background-color: rgba(255, 255, 255, 0.95);
   border: solid 1px black;
   top: 100px;
+  margin-bottom: 40px;
 `;
 
 const HeaderContainer = styled.div`

@@ -71,4 +71,5 @@ const AppStyles = styled.div`
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
+  overflow-y: scroll;
 `;
